@@ -1,4 +1,12 @@
 name: tata
+nameOverride: ""
+
+#general
+fullnameOverride: "azeazeaze"
+
+#service
+
+#secret
 secret:
   superSecretUrl: azeazeazeaze
   toto: titi
