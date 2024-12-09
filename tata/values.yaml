@@ -1,5 +1,4 @@
 name: tata
-secret_key: azeazeaze
-secret_value: azeaze
 secret:
   superSecretUrl: azeazeazeaze
+  toto: titi
