@@ -10,9 +10,13 @@ image:
   tag: "1.25.2"
   pullPolicy: IfNotPresent
 
-service:
-  type: ClusterIP
-  port: 80
+defaultServiceType: ClusterIP
+services:
+  nginx:
+    type: LoadBalancer
+    port: 80
+  loadbalancer:
+    port: 3030
 
 resources:
   limits:
@@ -23,7 +27,5 @@ resources:
     memory: "64Mi"
 
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}

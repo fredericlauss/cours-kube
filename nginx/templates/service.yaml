@@ -1,13 +1,16 @@
+{{- range $name, $config := .Values.services }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-nginx
+  name: {{ $.Release.Name | default "default-release" }}-{{ $name }}
   labels:
-    app: {{ .Chart.Name }}
+    app: {{ $.Chart.Name }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ $config.type | default $.Values.defaultServiceType }}
   ports:
-  - port: {{ .Values.service.port }}
-    targetPort: 80
+  - port: {{ $config.port }}
+    targetPort: {{ $config.targetPort | default $config.port }}
   selector:
-    app: {{ .Chart.Name }}
+    app: {{ $.Chart.Name }}
+---
+{{ end }}
