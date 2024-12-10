@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $.Release.Name | default "default-release" }}-{{ $name }}
+  name: {{ include "my-library.fullname" $ }}-{{ $name }}
   labels:
     app: {{ $.Chart.Name }}
 spec:

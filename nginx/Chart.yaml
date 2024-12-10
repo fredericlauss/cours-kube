@@ -4,3 +4,7 @@ description: A Helm Nginx
 type: application
 version: 0.1.0
 appVersion: "0.1.0"
+dependencies:
+  - name: my-library
+    version: 0.1.0
+    repository: "file://charts/my-library-0.1.0.tgz"
