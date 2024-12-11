@@ -1,20 +1,21 @@
+{{/*
+Reusable Service template in my-library
+*/}}
 {{- define "my-library.service" -}}
+{{- range $name, $config := .Values.services }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "my-library.fullname" . }}-{{ .name }}
+  name: {{ include "my-library.fullname" $ }}-{{ $name }}
   labels:
-    app: {{ include "my-library.fullname" . }}
-    {{- with .labels }}
-    {{ toYaml . | nindent 4 }}
-    {{- end }}
+    app: {{ $.Chart.Name }}
 spec:
-  type: {{ .type | default "ClusterIP" }}
+  type: {{ $config.type | default $.Values.defaultServiceType }}
   ports:
-  {{- range .ports }}
-  - port: {{ .port }}
-    targetPort: {{ .targetPort | default .port }}
-  {{- end }}
+  - port: {{ $config.port }}
+    targetPort: {{ $config.targetPort | default $config.port }}
   selector:
-    app: {{ include "my-library.fullname" . }}
+    app: {{ $.Chart.Name }}
+---
+{{- end }}
 {{- end }}
