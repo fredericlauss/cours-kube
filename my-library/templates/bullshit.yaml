@@ -1,0 +1,1 @@
+{{ include "nomlib.all" . }} => a faire dans l'autre chart
