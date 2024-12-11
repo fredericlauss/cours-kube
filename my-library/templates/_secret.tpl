@@ -1,6 +1,3 @@
-{{/*
-Reusable Secret template in my-library
-*/}}
 {{- define "my-library.secret" -}}
 {{- if .Values.secret }}
 apiVersion: v1

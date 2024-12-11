@@ -1,6 +1,3 @@
-{{/*
-Reusable Service template in my-library
-*/}}
 {{- define "my-library.service" -}}
 {{- range $name, $config := .Values.services }}
 apiVersion: v1

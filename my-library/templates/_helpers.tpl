@@ -1,6 +1,3 @@
-{{/*
-Generate a full name for a resource.
-*/}}
 {{- define "my-library.fullname" -}}
 {{- printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" -}}
 {{- end }}
